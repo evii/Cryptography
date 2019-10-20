@@ -31,4 +31,12 @@ class CryptoTest {
         val inputUrl = "https://www.google.co.nz/?gfe_rd=cr&ei=dzbFV&gws_rd=ssl#q=java"
         assertEquals(Encode.urlEncode(inputUrl), output)
     }
+
+    @Test
+    fun RSACryptografyTest() {
+        val keyPair = Crypto.generateRSAKeys()
+        val encrypted = Crypto.encryptRSA(input, keyPair)
+        val decrypted = Crypto.decryptRSA(encrypted, keyPair)
+        assertEquals(decrypted, input)
+    }
 }
