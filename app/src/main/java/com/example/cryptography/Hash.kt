@@ -1,13 +1,13 @@
 package com.example.cryptography
 
 
-import com.example.cryptography.HashFunctions.convertToHex
-import com.example.cryptography.HashFunctions.hash256
-import com.example.cryptography.HashFunctions.hash3_256
+import com.example.cryptography.Hash.convertToHex
+import com.example.cryptography.Hash.hash256
+import com.example.cryptography.Hash.hash3_256
 import org.bouncycastle.jcajce.provider.digest.SHA3
 import java.security.MessageDigest
 
-object HashFunctions {
+object Hash {
 
     //1. convert inputString to byte array (output is 32 digits = 256/8 SHA256/UTF_8 - 8bit), i.e. hash is 256-bit = 32-byte)
     fun hash256(input: String): ByteArray {
