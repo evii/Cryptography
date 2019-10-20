@@ -12,11 +12,11 @@ import java.util.Base64.getUrlEncoder
 object Encode {
 
     fun base64Encode(input: String): String {
-        // 1. getting binary data = byte array from input
+        // 1. get binary data = byte array from input
         val byteArray = input.toByteArray(charset("UTF-8"))
         byteArray.forEach { i -> print("$i ") }
         println(" ")
-        // 2. assigning ASCII to each byte
+        // 2. assign ASCII to each byte
         val output = Base64.getEncoder().encodeToString(byteArray)
         println(output)
         return output

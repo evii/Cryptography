@@ -34,9 +34,18 @@ class CryptoTest {
 
     @Test
     fun RSACryptografyTest() {
-        val keyPair = Crypto.generateRSAKeys()
-        val encrypted = Crypto.encryptRSA(input, keyPair)
-        val decrypted = Crypto.decryptRSA(encrypted, keyPair)
+        val keyPair = CryptoRSA.generateRSAKeys()
+        val encrypted = CryptoRSA.encryptRSA(input, keyPair)
+        val decrypted = CryptoRSA.decryptRSA(encrypted, keyPair)
+        assertEquals(decrypted, input)
+    }
+
+    @Test
+    fun AESCryptografyTest() {
+        val secretKey = "My secret key"
+        val key = CryptoAES.generateAESKey(secretKey)
+        val encrypted = CryptoAES.encryptAES(input, key)
+        val decrypted = CryptoAES.decryptAES(encrypted, key)
         assertEquals(decrypted, input)
     }
 }
