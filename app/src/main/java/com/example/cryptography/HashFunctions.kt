@@ -21,7 +21,7 @@ object HashFunctions {
     //2. convert byte array to String in hex
     fun convertToHex(byteArray: ByteArray): String {
 
-        val hexString = StringBuffer()\
+        val hexString = StringBuffer()
         for (i in byteArray.indices) {
             val hex = Integer.toHexString(0xff and byteArray[i].toInt())
             if (hex.length == 1) hexString.append('0')
@@ -49,7 +49,7 @@ fun main(args: Array<String>) {
     val inputString = "hello world"
     println("Final SHA-256: ${convertToHex(hash256(inputString))}")
     println("Final SHA3-256: ${convertToHex(hash3_256(inputString))}")
-    dasd
+
 
 }
 
