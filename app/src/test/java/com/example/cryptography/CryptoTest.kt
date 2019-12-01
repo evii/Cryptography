@@ -48,4 +48,13 @@ class CryptoTest {
         val decrypted = CryptoAES.decryptAES(encrypted, key)
         assertEquals(decrypted, input)
     }
+
+    /*@Test
+    fun ImportX509CertificateTest() {
+        val certificateString = ""
+
+        val output =
+        assertEquals(Certificate.importX509Certificate(certificateString), output)
+    }*/
+
 }
