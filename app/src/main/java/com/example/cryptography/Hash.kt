@@ -1,11 +1,13 @@
 package com.example.cryptography
 
 
+import com.example.cryptography.Hash.convertToBase64
 import com.example.cryptography.Hash.convertToHex
 import com.example.cryptography.Hash.hash256
 import com.example.cryptography.Hash.hash3_256
 import org.bouncycastle.jcajce.provider.digest.SHA3
 import java.security.MessageDigest
+import java.util.*
 
 object Hash {
 
@@ -43,13 +45,17 @@ object Hash {
         println("\n")
         return byteArray
     }
+    fun convertToBase64(byteArray: ByteArray): String {
+        return Base64.getEncoder().encodeToString(byteArray)
+    }
 }
 
 fun main(args: Array<String>) {
     val inputString = "hello world"
-    println("Final SHA-256: ${convertToHex(hash256(inputString))}")
-    println("Final SHA3-256: ${convertToHex(hash3_256(inputString))}")
+    println("Final hex SHA-256: ${convertToHex(hash256(inputString))}")
+    println("Final hex SHA3-256: ${convertToHex(hash3_256(inputString))}")
 
-
+    println("Final base64 SHA-256: ${convertToBase64(hash256(inputString))}")
+    println("Final base64 SHA3-256: ${convertToBase64(hash3_256(inputString))}")
 }
 
